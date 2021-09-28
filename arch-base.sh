@@ -4,12 +4,12 @@
 printf "[Start] Setting up the timezone and auto timesync : /etc/locale.gen"
 sed -i '177s/.//' /etc/locale.gen
 locale-gen
-timedatectl set-ntp true
 printf "[Done] Setting up the timezone and auto timesync : /etc/locale.gen"
 
 # Editing the local timezone
 printf "[Start] Setting the localtime : /etc/localtime"
-ln -sf /usr/share/zoneinfo/Asia/Hong_Kong
+ln -sf /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime
+timedatectl set-ntp true
 hwclock --systohc
 printf "[Done] Setting the localtime : /etc/localtime"
 
